@@ -4,7 +4,7 @@ import styles from '../../common/styles/Columns.module.scss';
 const ShopingList = ({ shopingList, onRemoveFromShopingList }) => {
   return (
     <ul className={`${styles.shopingList}`}>
-      {shopingList.map((item, index) => (
+      {shopingList.map((item) => (
         <li key={item.nazwa} onContextMenu={e => {
           e.preventDefault();
           onRemoveFromShopingList(item);

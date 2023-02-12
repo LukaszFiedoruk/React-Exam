@@ -13,11 +13,11 @@ function App() {
     setShopingList([...shopingList, product]);
   };
 
-  const handleRemoveFromShopingList = (index) => {
+  function handleRemoveFromShopingList(index) {
     const newShopingList = [...shopingList];
     newShopingList.splice(index, 1);
     setShopingList(newShopingList);
-  };
+  }
   const handleAddProduct = (product) => {
     setProducts([...products, product]);
   };
