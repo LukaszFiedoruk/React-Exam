@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import produkty from '../../common/consts/produkty';
+// import produkty from '../../common/consts/produkty';
 import styles from '../../common/styles/Columns.module.scss';
 
-const ProductsList = ({ onAddToShopingList }) => {
+const ProductsList = ({ onAddToShopingList, products }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [category, setCategory] = useState('');
 
-  const filteredProducts = produkty.filter((product) => {
+  const filteredProducts = products.filter((product) => {
     return product.nazwa.toLowerCase().includes(searchTerm.toLowerCase()) &&
            (category === '' || product.kategoria === category);
   });
@@ -24,7 +24,7 @@ const ProductsList = ({ onAddToShopingList }) => {
           onChange={(event) => setCategory(event.target.value)}
         >
           <option value="">All Categories</option>
-          {Array.from(new Set(produkty.map((product) => product.kategoria))).map((category) => (
+          {Array.from(new Set(products.map((product) => product.kategoria))).map((category) => (
             <option key={category} value={category}>{category}</option>
           ))}
         </select>

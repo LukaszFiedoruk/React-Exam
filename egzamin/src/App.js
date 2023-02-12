@@ -3,11 +3,12 @@ import ProductsList from './components/ProductsList/ProductsList';
 import ShopingList from './components/ShopingList/ShopingList';
 import AddProducts from './components/AddProducts/AddProducts';
 import ProductsFilters from './components/ProductsFilters/ProductsFilters';
+import produkty from "./common/consts/produkty";
 import styles from './App.module.scss';
 
 function App() {
   const [shopingList, setShopingList] = useState([]);
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState(produkty);
 
   const handleAddToShopingList = (product) => {
     setShopingList([...shopingList, product]);
@@ -25,7 +26,7 @@ function App() {
   return (
     <div className={styles.appWrapper}>
       <AddProducts onAddProduct={handleAddProduct} />
-      <ProductsFilters />
+      {/* <ProductsFilters /> */}
       <div className={styles.columnsWrapper}>
         <ProductsList products={products} onAddToShopingList={handleAddToShopingList} />
         <ShopingList shopingList={shopingList} onRemoveFromShopingList={handleRemoveFromShopingList} />

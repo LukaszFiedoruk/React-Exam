@@ -26,12 +26,13 @@ nazwa: name,
 kategoria: category,
 produktSpozywczy: isFood
 };
-produkty.push(newProduct);
-this.setState({
-name: '',
-category: '',
-isFood: false
-});
+this.props.onAddProduct(newProduct)
+// produkty.push(newProduct);
+// this.setState({
+// name: '',
+// category: '',
+// isFood: false
+// });
 };
 
 render() {
