@@ -1,9 +1,12 @@
 .appWrapper {
   display: flex;
   flex-direction: column;
+  background-color: rgb(255, 255, 255);
 }
 
 .columnsWrapper {
   display: flex;
   height: calc(100vh - 100px);
+  background-color: rgb(91, 41, 186);
+  justify-content: space-between;
 }

@@ -7,6 +7,7 @@ import styles from './App.module.scss';
 
 function App() {
   const [shopingList, setShopingList] = useState([]);
+  const [products, setProducts] = useState([]);
 
   const handleAddToShopingList = (product) => {
     setShopingList([...shopingList, product]);
@@ -17,13 +18,16 @@ function App() {
     newShopingList.splice(index, 1);
     setShopingList(newShopingList);
   };
+  const handleAddProduct = (product) => {
+    setProducts([...products, product]);
+  };
 
   return (
     <div className={styles.appWrapper}>
-      <AddProducts />
+      <AddProducts onAddProduct={handleAddProduct} />
       <ProductsFilters />
       <div className={styles.columnsWrapper}>
-        <ProductsList onAddToShopingList={handleAddToShopingList} />
+        <ProductsList products={products} onAddToShopingList={handleAddToShopingList} />
         <ShopingList shopingList={shopingList} onRemoveFromShopingList={handleRemoveFromShopingList} />
       </div>
     </div>
